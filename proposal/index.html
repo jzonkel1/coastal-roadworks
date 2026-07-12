@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Online Presence Audit &amp; Growth Plan — Coastal Roadworks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="deck.css" />
+<style>
+/* =========================================================
+   Coastal Roadworks — online presence audit + growth plan
+   (5.0★ × 15 reviews, slow Wix site, H1 = email address,
+    absent from the Houston map pack; leader has 39 reviews)
+   ========================================================= */
+
+/* Coastal Roadworks lockup is dark-on-transparent — white plate works */
+.brandmark{background:#fff}
+
+/* ---- Generic diagram bits ---- */
+.flow-arrow{display:flex;align-items:center;justify-content:center;color:var(--accent)}
+.flow-arrow svg{width:34px;height:34px}
+.mini-ic{display:grid;place-items:center;border-radius:14px;flex:none}
+.mini-ic svg{width:50%;height:50%}
+
+/* ---- Slide 3: audit scorecard (gauge + fact rows) ---- */
+.audit{display:grid;grid-template-columns:.9fr 1.25fr;gap:clamp(26px,4vw,60px);align-items:center;margin-top:26px}
+.gauge-card{background:#fff;border:1px solid var(--mist-2);border-radius:20px;padding:30px 26px;text-align:center;box-shadow:0 16px 40px rgba(16,42,69,.1)}
+.gauge{position:relative;width:min(230px,60%);margin:0 auto}
+.gauge svg{width:100%;height:auto;transform:rotate(-90deg)}
+.gauge .gv{position:absolute;inset:0;display:grid;place-items:center}
+.gauge .gv b{font-family:var(--font-head);font-weight:900;font-size:clamp(2.6rem,4.6vw,3.8rem);color:#C62828;line-height:1}
+.gauge .gv small{display:block;color:var(--steel);font-weight:700;font-size:.95rem;margin-top:2px}
+.gauge-card h3{font-size:clamp(1.05rem,1.5vw,1.3rem);color:var(--navy-800);margin-top:16px}
+.gauge-card p{color:var(--steel);font-size:.9rem;margin-top:6px}
+.facts{display:grid;gap:13px}
+.fact{display:flex;align-items:center;gap:18px;background:#fff;border:1px solid var(--mist-2);border-radius:14px;padding:15px 20px;box-shadow:0 8px 22px rgba(16,42,69,.06)}
+.fact .fv{flex:none;min-width:118px;text-align:center;font-family:var(--font-head);font-weight:900;font-size:clamp(1.15rem,1.9vw,1.6rem);padding:10px 14px;border-radius:10px}
+.fact .fv.bad{background:#FDECEC;color:#C62828}
+.fact .fv.warn{background:#FFF4E0;color:#B26A00}
+.fact .ft{font-size:clamp(.9rem,1.25vw,1.05rem);color:#2c3a48;line-height:1.45}
+.fact .ft b{font-family:var(--font-head);color:var(--navy-800)}
+.audit-foot{margin-top:20px;color:var(--steel);font-size:.9rem;text-align:center}
+
+/* ---- Slide 4: the H1 reveal ---- */
+.h1x{width:min(940px,100%);margin:34px auto 0;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 26px 70px rgba(0,0,0,.45)}
+.h1x-bar{display:flex;align-items:center;gap:8px;background:#EDF1F5;padding:11px 16px;border-bottom:1px solid var(--mist-2)}
+.h1x-bar i{width:11px;height:11px;border-radius:50%;background:#C9D3DD;display:block}
+.h1x-bar .url{flex:1;margin-left:8px;background:#fff;border:1px solid var(--mist-2);border-radius:99px;padding:6px 16px;color:var(--steel);font-weight:600;font-size:.85rem}
+.h1x-body{padding:clamp(26px,3.4vw,44px) clamp(26px,4vw,54px);text-align:center}
+.h1x-lbl{font-family:var(--font-head);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:clamp(.72rem,1vw,.85rem);color:var(--steel)}
+.h1x-val{font-family:var(--font-head);font-weight:900;font-size:clamp(1.7rem,3.8vw,3.1rem);color:var(--navy-800);margin-top:14px;overflow-wrap:anywhere}
+.h1x-val u{text-decoration:none;background-image:linear-gradient(45deg,transparent 62%,#E23B3B 62% 78%,transparent 78%);background-size:9px 9px;background-repeat:repeat-x;background-position:0 100%;padding-bottom:8px}
+.h1x-note{display:inline-flex;align-items:center;gap:9px;margin-top:18px;background:#FDECEC;color:#C62828;font-weight:700;font-size:clamp(.85rem,1.2vw,1rem);border-radius:99px;padding:9px 18px}
+.h1x-note svg{width:17px;height:17px;flex:none}
+.h1-take{width:min(940px,100%);margin:26px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.h1-take li{list-style:none;display:flex;gap:12px;align-items:flex-start}
+.h1-take .sn{width:26px;height:26px;border-radius:50%;flex:none;display:grid;place-items:center;font-family:var(--font-head);font-weight:800;font-size:.8rem}
+.h1-take .sn.bad{background:linear-gradient(160deg,#E23B3B,#B42020);color:#fff}
+.h1-take .sn.good{background:linear-gradient(160deg,var(--accent),var(--accent-600));color:#fff}
+.h1-take span{color:#c9d6e4;font-size:clamp(.82rem,1.1vw,.96rem);line-height:1.45}
+.h1-take b{color:#fff;font-family:var(--font-head);display:block;margin-bottom:3px;font-size:clamp(.92rem,1.25vw,1.08rem)}
+
+/* ---- Slide 5: what a Houston search actually shows ---- */
+.serp{background:#fff;border:1px solid var(--mist-2);border-radius:16px;box-shadow:0 18px 44px rgba(16,42,69,.14);overflow:hidden;font-size:clamp(.62rem,.85vw,.78rem)}
+.serp-bar{display:flex;align-items:center;gap:9px;padding:11px 14px;border-bottom:1px solid var(--mist-2);background:#fbfcfd}
+.serp-bar .sq{flex:1;background:#fff;border:1px solid var(--mist-2);border-radius:999px;padding:6px 12px;color:var(--navy-800);font-weight:600}
+.serp-bar .sg{width:22px;height:22px;border-radius:50%;background:var(--mist);display:grid;place-items:center;color:var(--steel)}
+.serp-body{padding:12px 14px;display:flex;flex-direction:column;gap:9px}
+.serp-lbl{font-weight:800;color:var(--steel);text-transform:uppercase;letter-spacing:.1em;font-size:.62em}
+.ad-row{display:flex;gap:8px;align-items:baseline}
+.ad-row .adtag{background:#1a73e8;color:#fff;border-radius:4px;padding:1px 5px;font-weight:800;font-size:.85em;flex:none}
+.ad-row .adtxt{color:#1a0dab;font-weight:700}
+.map-pack{border:1px solid var(--mist-2);border-radius:10px;overflow:hidden}
+.mp-row{display:flex;align-items:center;gap:10px;padding:8px 11px;border-bottom:1px solid var(--mist)}
+.mp-row:last-child{border-bottom:none}
+.mp-row .mp-n{font-weight:800;color:var(--navy-800);flex:1}
+.mp-row .mp-r{color:var(--steel);font-weight:700;white-space:nowrap}
+.mp-row .mp-r i{color:#FBBC04;font-style:normal}
+.mp-row .mp-btn{background:#e8f0fe;color:#1a73e8;border-radius:6px;padding:3px 8px;font-weight:800;flex:none}
+.fold{display:flex;align-items:center;gap:10px;margin:2px 0}
+.fold span{color:#E23B3B;font-weight:800;white-space:nowrap;font-size:.95em}
+.fold::before,.fold::after{content:"";height:2px;flex:1;background:repeating-linear-gradient(90deg,#E23B3B 0 6px,transparent 6px 12px)}
+.org{border-radius:10px;padding:9px 12px;background:#FDEDED;border:2px solid #E23B3B}
+.org .ot{color:var(--navy-800);font-weight:800}
+.org .ob{color:var(--steel);margin-top:2px}
+.serp-take{margin-top:6px}
+.serp-take li{list-style:none;display:flex;gap:11px;align-items:flex-start;margin-bottom:13px}
+.serp-take .sn{width:26px;height:26px;border-radius:50%;flex:none;display:grid;place-items:center;font-family:var(--font-head);font-weight:800;font-size:.8rem;background:var(--mist);color:var(--navy-800)}
+.serp-take .sn.bad{background:linear-gradient(160deg,#E23B3B,#B42020);color:#fff}
+.serp-take .sn.good{background:linear-gradient(160deg,var(--accent),var(--accent-600));color:#fff}
+.serp-take b{font-family:var(--font-head);color:var(--navy-800);display:block;font-size:clamp(.95rem,1.3vw,1.12rem)}
+.serp-take small{color:var(--steel);font-size:clamp(.8rem,1.05vw,.93rem);line-height:1.4;display:block}
+
+/* ---- Slide 6: the AI answer ---- */
+.chat{background:#fff;border:1px solid var(--mist-2);border-radius:16px;box-shadow:0 22px 55px rgba(0,0,0,.4);padding:18px;display:flex;flex-direction:column;gap:12px;font-size:clamp(.68rem,.95vw,.85rem)}
+.chat .cu{align-self:flex-end;max-width:82%;background:var(--mist);color:var(--navy-800);border-radius:14px 14px 3px 14px;padding:10px 14px;font-weight:600;line-height:1.45}
+.chat .ca{align-self:flex-start;max-width:94%;display:flex;gap:10px;align-items:flex-start}
+.chat .ca .spark{flex:none;width:26px;height:26px;border-radius:50%;background:linear-gradient(160deg,var(--accent),var(--accent-600));display:grid;place-items:center;color:#fff}
+.chat .ca .spark svg{width:14px;height:14px}
+.chat .ca-body{background:#F6F8FA;border:1px solid var(--mist-2);border-radius:3px 14px 14px 14px;padding:10px 14px;color:#2c3a48;line-height:1.5;flex:1}
+.ai-rows{display:grid;gap:7px;margin-top:9px}
+.ai-row{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--mist-2);border-radius:9px;padding:7px 11px}
+.ai-row .arn{font-weight:800;color:var(--navy-800)}
+.ai-row .arn.blur{filter:blur(4px)}
+.ai-row .arr{color:var(--steel);font-weight:700;white-space:nowrap}
+.ai-row .arr i{color:#FBBC04;font-style:normal}
+.ai-row.bad{background:#FDEDED;border-color:#E23B3B}
+.ai-row.bad .arr{color:#C62828}
+.chat-cap{color:#9fb2c6;font-size:clamp(.72rem,.95vw,.82rem);margin-top:10px;text-align:center}
+.readcmp{display:grid;gap:16px}
+.readcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:20px 24px}
+.readcard.good{border-color:var(--accent);background:linear-gradient(160deg,rgba(17,145,193,.16),rgba(17,145,193,.05))}
+.readcard h3{color:#fff;font-size:clamp(1rem,1.45vw,1.25rem);margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.readcard h3 svg{width:19px;height:19px;flex:none}
+.readcard h3 .rc-bad{color:#FF7B7B}
+.readcard h3 .rc-good{color:var(--accent)}
+.readcard li{list-style:none;color:#c9d6e4;font-size:clamp(.82rem,1.1vw,.96rem);line-height:1.45;padding-left:16px;position:relative;margin-bottom:7px}
+.readcard li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.read-punch{margin-top:4px;color:#eaf1f8;font-weight:600;font-size:clamp(.9rem,1.25vw,1.08rem);line-height:1.5}
+.read-punch b{color:var(--accent)}
+
+/* ---- Slide 7: the new site (real screenshots) ---- */
+.shots{position:relative;width:min(640px,100%);margin:20px auto 0}
+.shot-desktop{width:82%;background:#16202B;border-radius:14px;padding:8px;box-shadow:0 30px 70px rgba(16,42,69,.35)}
+.shot-desktop .bar{display:flex;align-items:center;gap:5px;padding:4px 6px 8px}
+.shot-desktop .bar i{width:8px;height:8px;border-radius:50%;background:#4a5a6a;display:block}
+.shot-desktop .bar .url{flex:1;margin-left:6px;background:#243140;border-radius:99px;padding:3px 12px;color:#9fb2c6;font-size:.68rem;font-weight:600}
+.shot-desktop img{display:block;width:100%;border-radius:6px}
+.shot-phone{position:absolute;right:-34px;bottom:-20px;width:23%;background:#16202B;border-radius:22px;padding:6px;box-shadow:0 26px 60px rgba(16,42,69,.4);z-index:2}
+.shot-phone img{display:block;width:100%;border-radius:15px}
+.shot-chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:38px}
+.shot-chips span{background:#fff;border:1px solid var(--mist-2);border-radius:99px;padding:8px 15px;font-family:var(--font-head);font-weight:700;font-size:clamp(.72rem,.95vw,.85rem);color:var(--navy-800);box-shadow:0 8px 20px rgba(16,42,69,.07);display:inline-flex;align-items:center;gap:7px}
+.shot-chips span svg{width:14px;height:14px;color:var(--accent-600);flex:none}
+
+/* ---- Slide 9: the review race ---- */
+.race{width:min(880px,100%);margin:22px auto 0;display:flex;flex-direction:column;gap:12px;align-self:center}
+.race-row{display:grid;grid-template-columns:250px 1fr;align-items:center;gap:18px}
+.race-row .rname{font-family:var(--font-head);font-weight:700;font-size:clamp(.88rem,1.25vw,1.05rem);color:#eaf1f8;text-align:right;line-height:1.15}
+.race-row .rname small{display:block;font-weight:600;font-size:.72rem;color:#9fb2c6}
+.race-track{position:relative;height:40px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;overflow:hidden}
+.race-bar{height:100%;border-radius:12px;display:flex;align-items:center;justify-content:flex-end;padding:0 14px;font-family:var(--font-head);font-weight:800;font-size:clamp(.9rem,1.35vw,1.1rem);white-space:nowrap;min-width:max-content}
+.race-bar.gray{background:linear-gradient(160deg,#5d6f81,#43525f);color:#fff}
+.race-bar.red{background:linear-gradient(160deg,#E23B3B,#B42020);color:#fff}
+.race-bar.blue{background:linear-gradient(160deg,var(--accent),var(--accent-600));color:#fff;box-shadow:0 12px 30px rgba(17,145,193,.4)}
+.race-note{text-align:center;color:#c9d6e4;font-weight:600;margin-top:14px;font-size:clamp(.88rem,1.2vw,1.02rem);line-height:1.5;width:min(920px,100%);align-self:center}
+.race-note b{color:var(--accent)}
+
+/* ---- Slide 10: missed-call rescue (phone mock) ---- */
+.sms-split{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,4.5vw,64px);align-items:center;margin-top:18px}
+.ph{width:min(320px,100%);margin:0 auto;background:#16202B;border-radius:28px;padding:10px;box-shadow:0 28px 64px rgba(16,42,69,.3)}
+.ph-screen{background:#F5F7FA;border-radius:20px;padding:16px 13px;display:flex;flex-direction:column;gap:9px}
+.ph-head{text-align:center;font-family:var(--font-head);font-weight:800;color:var(--navy-800);font-size:.82rem;padding-bottom:9px;border-bottom:1px solid var(--mist-2)}
+.m-sys{align-self:center;background:var(--mist);color:var(--steel);font-weight:700;font-size:.66rem;border-radius:99px;padding:4px 12px}
+.m-sys.miss{background:#FDECEC;color:#C62828}
+.m-out{align-self:flex-end;max-width:88%;background:linear-gradient(160deg,var(--accent),var(--accent-600));color:#fff;border-radius:13px 13px 3px 13px;padding:9px 12px;font-size:.74rem;line-height:1.45;font-weight:500}
+.m-in{align-self:flex-start;max-width:88%;background:#E7EBEF;color:#26323f;border-radius:13px 13px 13px 3px;padding:9px 12px;font-size:.74rem;line-height:1.45;font-weight:500}
+.m-t{font-size:.6rem;color:var(--steel);font-weight:600}
+.m-t.r{align-self:flex-end}
+.sms-pts .bignum{font-family:var(--font-head);font-weight:900;font-size:clamp(3rem,6vw,4.6rem);color:var(--accent-600);line-height:1}
+.sms-pts .bigcap{color:var(--navy-800);font-family:var(--font-head);font-weight:700;font-size:clamp(1.05rem,1.6vw,1.35rem);margin-top:4px}
+.sms-pts .bigsrc{color:var(--steel);font-size:.85rem;margin-top:2px}
+.sms-pts ul{margin-top:22px;display:grid;gap:13px}
+.sms-pts li{list-style:none;display:flex;gap:13px;align-items:flex-start;color:#2c3a48;font-size:clamp(.9rem,1.25vw,1.05rem);line-height:1.5}
+.sms-pts li svg{flex:none;width:20px;height:20px;color:var(--accent-600);margin-top:2px}
+
+/* ---- Slide 12: ROI flow ---- */
+.roi-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:clamp(10px,1.6vw,26px);margin-top:36px}
+.roi-node{background:#fff;border:1px solid var(--mist-2);border-radius:20px;padding:30px 26px;text-align:center;box-shadow:0 16px 40px rgba(16,42,69,.1)}
+.roi-node .ic{width:66px;height:66px;margin:0 auto 14px;background:linear-gradient(160deg,var(--accent),var(--accent-600));color:#fff}
+.roi-node .big{font-family:var(--font-head);font-weight:900;font-size:clamp(1.7rem,3.2vw,2.7rem);color:var(--navy-800);line-height:1.05}
+.roi-node .lbl{color:var(--steel);font-size:clamp(.85rem,1.15vw,1rem);margin-top:8px;line-height:1.45}
+.roi-node.win{background:linear-gradient(160deg,var(--accent),var(--accent-600));border:none;box-shadow:0 22px 55px rgba(17,145,193,.35)}
+.roi-node.win .big,.roi-node.win .lbl{color:#fff}
+.roi-punch{text-align:center;margin-top:30px;font-family:var(--font-head);font-weight:800;font-size:clamp(1.2rem,2.2vw,1.85rem);color:var(--navy-800)}
+.roi-punch b{color:var(--accent-600)}
+
+/* ---- Slide 13: price anchors ---- */
+.anchors{display:grid;grid-template-columns:1fr 1fr 1.15fr;gap:16px;margin-top:28px}
+.an{background:#fff;border:1px solid var(--mist-2);border-radius:16px;padding:20px 22px;box-shadow:0 10px 26px rgba(16,42,69,.07)}
+.an .ak{font-family:var(--font-head);font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:.72rem;color:var(--steel)}
+.an .av{font-family:var(--font-head);font-weight:900;font-size:clamp(1.5rem,2.6vw,2.2rem);color:var(--steel);margin-top:6px}
+.an .as{color:var(--steel);font-size:.85rem;margin-top:3px}
+.an.win{background:linear-gradient(160deg,var(--accent),var(--accent-600));border:none;box-shadow:0 18px 46px rgba(17,145,193,.35)}
+.an.win .ak,.an.win .as{color:rgba(255,255,255,.85)}
+.an.win .av{color:#fff}
+.inv-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:20px}
+.inv-grid .pcard{padding:26px 28px}
+
+/* tighter pricing lists on the investment + backup slides */
+.pcard ul{gap:10px}
+.pcard li{font-size:clamp(.85rem,1.1vw,.98rem)}
+</style>
+<script>
+/* =================================================================
+   EDIT THIS BLOCK ONLY. Everything else fills in automatically.
+   ================================================================= */
+window.CONFIG = {
+  agency:   "Zonkel Media",
+  business: "Coastal Roadworks",
+  owner:    "Braden Menn",
+  phone:    "361-876-7822",
+  phoneRaw: "+13618767822",
+  industry: "parking lot striping & asphalt maintenance",
+  city:     "Houston",
+  accent:   "#1191c1",
+  accentDark:"#086a90",
+  logo:     "coastal-roadworks-logo.png",
+
+  /* Slide 8 — why the new site converts */
+  roi: [
+    { icon:"bolt", title:"Instant where yours takes 12 seconds", text:"Hand-coded and pre-rendered — the page appears before a buyer even thinks about hitting back. Your current site loses them at hello." },
+    { icon:"funnel", title:"A 60-second quote wizard", text:"Tap the service, the property type, the timeline — done. Far more completed requests than a blank contact form, and every answer arrives pre-qualified." },
+    { icon:"mobile", title:"Built for the phone in their hand", text:"Property managers vet vendors between site walks. One-tap call, sticky quote bar, and a layout designed phone-first — not shrunk down from desktop." },
+    { icon:"star", title:"Proof above the fold", text:"5.0★ Google rating, real drone footage, insured & owner-led badges — the comparison with the next striper is over before they scroll." }
+  ],
+
+  /* Slide 11 — the Contractor Growth System, no price yet */
+  cgs: [
+    { t:"Review engine", sub:"An automatic review ask after every finished job — the race you just saw, on autopilot" },
+    { t:"Missed-call text-back", sub:"Every missed call gets an instant text from your number — 24/7, even mid-stripe at 2 AM" },
+    { t:"Automatic follow-up", sub:"Every quote request is chased until it's answered — no lead dies in a voicemail box" },
+    { t:"One inbox on your phone", sub:"Calls, texts, website chats and Facebook messages in a single app" },
+    { t:"Website + Google, fully managed", sub:"Hosting, security updates, content edits and your Google Business Profile — handled" }
+  ],
+
+  /* Slide 13 — the offer */
+  tiers: [
+    { name:"Custom Website Build", price:"$2,000", unit:"one-time", sub:"Referral pricing — and you own the site outright", features:[
+      "The site you just saw — finished &amp; launched on coastalroadworks.com",
+      "Hand-coded, no Wix: loads instantly on any phone",
+      "Service pages + schema + AI files — readable by Google &amp; AI",
+      "60-second quote wizard &amp; one-tap call on every screen",
+      "All 15 five-star reviews built in, word for word" ] },
+    { name:"Contractor Growth System", price:"$297", unit:"/mo", sub:"The machine that turns the new site into booked jobs", featured:true, ribbon:"Recommended", features:[
+      "5-star review engine — automatic ask after every job",
+      "Missed-call text-back — instant reply while you're striping",
+      "Automatic follow-up on every quote until they answer",
+      "One inbox — every call, text &amp; chat in one phone app",
+      "Website + Google Business Profile fully managed" ] }
+  ],
+
+  /* Backup slide at the very end — only shown if the main pitch stalls */
+  starter: [
+    { name:"Website + Google Care", price:"$97", unit:"/mo", sub:"Keep it simple — the site stays fast, Google stays fresh", features:[
+      "Hosting, technical support &amp; security updates",
+      "Content edits whenever you need them",
+      "Google Business Profile care — 2 posts every month",
+      "Quote requests forwarded straight to your phone",
+      "~No review engine, missed-call text-back, or auto follow-up" ] }
+  ]
+};
+</script>
+</head>
+<body>
+
+<img class="brandmark" src="" alt="" />
+<div class="counter"><span id="cur">1</span> / <span id="tot">15</span></div>
+
+<div class="deck">
+
+  <!-- 1. Cover -->
+  <section class="slide navy active">
+    <div class="logo-plate"><img class="cover-logo" src="" alt="{{business}}" /></div>
+    <span class="eyebrow">Online Presence Audit &amp; Growth Plan</span>
+    <h1 class="title">You Do 5-Star Work.<br/><span class="hl">Your Website Hides It.</span></h1>
+    <p class="cover-sub">Coastal Roadworks holds a perfect 5.0 on Google — rarer than it sounds. But this week's audit found a slow Wix site that never tells Google or AI what you actually do, and a Houston map pack that shows your competitors instead of you. Here's exactly what's happening — and the plan to fix it.</p>
+    <div class="cover-meta"><div>Prepared for <b>{{owner}}</b> · Coastal Roadworks LLC</div><div>Presented by <b>{{agency}}</b> · July 2026</div></div>
+  </section>
+
+  <!-- 2. What's already working -->
+  <section class="slide light">
+    <span class="eyebrow">The Audit · What's Working</span>
+    <h2 class="head">The hard part <span class="hl">is already done</span></h2>
+    <p class="lead">Most contractors we audit have a reputation problem. You don't — customers love the work. What's broken is the machine <i>around</i> the work: the website, the visibility, the follow-up. Good news — machines are fixable.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="n">5.0★</div><p><b>A perfect Google rating.</b> Not a single review below five stars — most of your competitors can't say that.</p></div>
+      <div class="stat"><div class="n">15</div><p><b>Real five-star reviews</b> — verified on your Google profile this week, praising quality, speed and communication.</p></div>
+      <div class="stat"><div class="n">0</div><p><b>Complaints to clean up.</b> No reputation repair needed — we get to pour fuel straight on visibility.</p></div>
+    </div>
+  </section>
+
+  <!-- 3. The website audit — real Lighthouse numbers -->
+  <section class="slide light">
+    <span class="eyebrow">The Audit · The Website</span>
+    <h2 class="head">The current site is <span class="hl">costing you jobs</span></h2>
+    <div class="audit">
+      <div class="gauge-card">
+        <div class="gauge">
+          <svg viewBox="0 0 180 180">
+            <circle cx="90" cy="90" r="70" fill="none" stroke="#E3E9F0" stroke-width="17"/>
+            <circle cx="90" cy="90" r="70" fill="none" stroke="#E23B3B" stroke-width="17" stroke-linecap="round" stroke-dasharray="228.7 439.8"/>
+          </svg>
+          <div class="gv"><div><b>52</b><small>/ 100</small></div></div>
+        </div>
+        <h3>Mobile performance score</h3>
+        <p>Google Lighthouse — run on coastalroadworks.com this week</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><div class="fv bad">12.0&nbsp;s</div><div class="ft"><b>Until your main content appears on a phone.</b> Buyers give a site about 3 seconds — most are gone long before yours says a word.</div></div>
+        <div class="fact"><div class="fv warn">531&nbsp;KB</div><div class="ft"><b>Of raw page code before a single photo loads</b> — Wix template bloat your visitors download on every visit.</div></div>
+        <div class="fact"><div class="fv warn">2.2&nbsp;MB</div><div class="ft"><b>Total mobile page weight.</b> Heavy on office Wi-Fi, painful on a job-site connection.</div></div>
+        <div class="fact"><div class="fv warn">Wix</div><div class="ft"><b>Template platform.</b> Same generic building blocks as thousands of sites — and none of the numbers above can be truly fixed inside it.</div></div>
+      </div>
+    </div>
+    <p class="audit-foot">All numbers measured July 2026 with Google Lighthouse — the same audit tool Google uses.</p>
+  </section>
+
+  <!-- 4. The H1 reveal -->
+  <section class="slide navy">
+    <span class="eyebrow">The Audit · What Machines See</span>
+    <h2 class="head">We asked your homepage what you do.<br/><span class="hl">It answered with an email address.</span></h2>
+    <div class="h1x">
+      <div class="h1x-bar"><i></i><i></i><i></i><span class="url">coastalroadworks.com</span></div>
+      <div class="h1x-body">
+        <div class="h1x-lbl">Main heading (H1) — the first line Google &amp; AI read to understand a page</div>
+        <div class="h1x-val"><u>CoastalRoadworks@gmail.com</u></div>
+        <div class="h1x-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>Verbatim — pulled from your live homepage this week</div>
+      </div>
+    </div>
+    <ul class="h1-take">
+      <li><span class="sn bad">1</span><span><b>It never says "striping."</b> Not "parking lot," not "Houston," not one service — the most important line on the page is an email address.</span></li>
+      <li><span class="sn bad">2</span><span><b>Headings are a top ranking signal.</b> Google and AI weigh the main heading more than almost any other line on a page — yours spends it on an email address.</span></li>
+      <li><span class="sn good">3</span><span><b>Almost nobody in your market has fixed this.</b> The first Houston striper whose site speaks fluent machine wins the whole new channel.</span></li>
+    </ul>
+  </section>
+
+  <!-- 5. What a Houston search actually shows -->
+  <section class="slide light">
+    <span class="eyebrow">The Audit · The Map Pack</span>
+    <h2 class="head">What a Houston property manager <span class="hl">actually sees</span></h2>
+    <div class="split" style="grid-template-columns:1.15fr 1fr;gap:38px;margin-top:14px;align-items:center">
+
+      <div class="serp">
+        <div class="serp-bar">
+          <span class="sg"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+          <span class="sq">parking lot striping houston tx</span>
+        </div>
+        <div class="serp-body">
+          <div class="serp-lbl">Sponsored</div>
+          <div class="ad-row"><span class="adtag">Ad</span><span class="adtxt">Parking Lot Striping — Free Quote Today</span></div>
+
+          <div class="serp-lbl">Businesses · Map results</div>
+          <div class="map-pack">
+            <div class="mp-row"><span class="mp-n">G-FORCE Striping — Houston North</span><span class="mp-r"><i>★</i> 5.0 (39)</span><span class="mp-btn">Call</span></div>
+            <div class="mp-row"><span class="mp-n">G-FORCE Striping — Houston South</span><span class="mp-r"><i>★</i> 5.0 (38)</span><span class="mp-btn">Call</span></div>
+            <div class="mp-row"><span class="mp-n">Five Alarm Parking Lot Striping</span><span class="mp-r"><i>★</i> 4.8 (20)</span><span class="mp-btn">Call</span></div>
+          </div>
+
+          <div class="fold"><span>▼ you are not on this screen ▼</span></div>
+
+          <div class="org">
+            <div class="ot">Coastal Roadworks — ★ 5.0 (15)</div>
+            <div class="ob">The best rating in the race — missing from the results. We pulled this search from Houston this week: your competitors' listings filled the screen, and yours never appeared.</div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="serp-take">
+        <li><span class="sn bad">1</span><span><b>The map pack takes the whole first screen</b><small>Ads and Google's map listings fill everything a buyer sees first. The searches we ran this week showed your competitors there — not you.</small></span></li>
+        <li><span class="sn bad">2</span><span><b>One tap and the job is gone</b><small>Every listed competitor has a Call button right on the result. The property manager never needs to scroll, compare, or find out you exist.</small></span></li>
+        <li><span class="sn good">3</span><span><b>The bar is shockingly low</b><small>The Houston market leader has 39 reviews — not 400. You have 15, all five stars. This race is completely winnable.</small></span></li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- 6. AI visibility -->
+  <section class="slide navy">
+    <span class="eyebrow">The New Search Reality</span>
+    <h2 class="head">Buyers don't just Google anymore — <span class="hl">they ask AI</span></h2>
+    <div class="split" style="grid-template-columns:1fr 1.05fr;gap:40px;margin-top:16px;align-items:center">
+
+      <div>
+        <div class="chat">
+          <div class="cu">Find me a parking lot striping company near Houston for a retail center — need ADA stalls and fire lanes.</div>
+          <div class="ca">
+            <span class="spark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.2 5.8L20 10l-5.8 2.2L12 18l-2.2-5.8L4 10l5.8-2.2z"/></svg></span>
+            <div class="ca-body">Based on the business information and reviews I can read, here are strong Houston options:
+              <div class="ai-rows">
+                <div class="ai-row"><span class="arn blur">Company Name One</span><span class="arr"><i>★</i> 5.0 · services listed</span></div>
+                <div class="ai-row"><span class="arn blur">Company Name Two</span><span class="arr"><i>★</i> 4.8 · service area clear</span></div>
+                <div class="ai-row bad"><span class="arn">Coastal Roadworks</span><span class="arr">✕ not enough readable info</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="chat-cap">Illustration — but the readability gap is real, from this week's audit of your site.</p>
+      </div>
+
+      <div class="readcmp">
+        <div class="readcard">
+          <h3><svg class="rc-bad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12"/></svg>What AI finds on your site today</h3>
+          <ul>
+            <li>Main heading: <b>your email address</b></li>
+            <li>The site's AI file is Wix boilerplate about Wix's own systems — it never mentions striping, Houston, or a single service</li>
+            <li>12-second load — crawlers give up, buyers bounce</li>
+          </ul>
+        </div>
+        <div class="readcard good">
+          <h3><svg class="rc-good" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>What AI will find on the new site</h3>
+          <ul>
+            <li>LocalBusiness &amp; Service schema — machine-readable proof of what you do and where</li>
+            <li>A real AI file: your services, your cities, your reviews — written to be quoted</li>
+            <li>Pre-rendered pages — instant for buyers, effortless for crawlers</li>
+          </ul>
+        </div>
+        <p class="read-punch">AI doesn't guess. It recommends businesses it can actually read. <b>Readable = recommendable.</b></p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. The new website — already built -->
+  <section class="slide light">
+    <span class="eyebrow">Already Built For You</span>
+    <h2 class="head">We didn't bring a mockup — <span class="hl">your new site is built</span></h2>
+    <div class="shots">
+      <div class="shot-desktop">
+        <div class="bar"><i></i><i></i><i></i><span class="url">coastalroadworks.com — the new build</span></div>
+        <img src="coastal-demo-desktop.jpeg" alt="New Coastal Roadworks website — desktop" />
+      </div>
+      <div class="shot-phone"><img src="coastal-demo-mobile.jpeg" alt="New Coastal Roadworks website — mobile" /></div>
+    </div>
+    <div class="shot-chips">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="6 3 20 12 6 21 6 3"/></svg>Your real drone footage, playing in the hero</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6.3 6.9.9-5 4.8 1.2 6.9L12 17.8 5.9 21l1.2-6.9-5-4.8 6.9-.9z"/></svg>All 15 Google reviews, word for word</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h18l-7 8v6l-4 2v-8z"/></svg>60-second quote wizard</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7A2 2 0 0 1 22 16.9z"/></svg>One-tap call on every screen</span>
+    </div>
+  </section>
+
+  <!-- 8. Built to convert -->
+  <section class="slide light">
+    <span class="eyebrow">Why It Out-Converts Your Current Site</span>
+    <h2 class="head">Designed to turn visitors into <span class="hl">quote requests</span></h2>
+    <div class="roi-grid" data-render="roi" data-key="roi"></div>
+  </section>
+
+  <!-- 9. The review race -->
+  <section class="slide navy">
+    <span class="eyebrow">Why Reviews Decide Visibility</span>
+    <h2 class="head">The map pack is a review race — <span class="hl">and the bar is low</span></h2>
+    <p class="lead" style="margin-top:8px;max-width:74ch">Review count, rating and recency decide who appears in Google's map results — and they're exactly what AI cites. The real Houston scoreboard, pulled this week:</p>
+    <div class="race">
+      <div class="race-row">
+        <div class="rname">G-FORCE Houston North<small>the market leader</small></div>
+        <div class="race-track"><div class="race-bar gray" style="width:70%">★ 5.0 · 39 reviews</div></div>
+      </div>
+      <div class="race-row">
+        <div class="rname">G-FORCE Houston South<small>same franchise, second listing</small></div>
+        <div class="race-track"><div class="race-bar gray" style="width:68%">★ 5.0 · 38</div></div>
+      </div>
+      <div class="race-row">
+        <div class="rname">Five Alarm Striping<small>third in the pack</small></div>
+        <div class="race-track"><div class="race-bar gray" style="width:38%">★ 4.8 · 20</div></div>
+      </div>
+      <div class="race-row">
+        <div class="rname">Coastal Roadworks today<small>perfect rating — stalled count</small></div>
+        <div class="race-track"><div class="race-bar red" style="width:30%">★ 5.0 · 15</div></div>
+      </div>
+      <div class="race-row">
+        <div class="rname">Coastal Roadworks + auto-asks<small>one request per finished job</small></div>
+        <div class="race-track"><div class="race-bar blue" style="width:100%">40+ inside a year</div></div>
+      </div>
+    </div>
+    <p class="race-note">You already out-rate everyone on that board. With an automatic review ask after every finished job, you pass the leader inside a year — <b>and every new review is fresh fuel for the map and for AI answers.</b></p>
+  </section>
+
+  <!-- 10. Automatic follow-up -->
+  <section class="slide light">
+    <span class="eyebrow">Where Jobs Quietly Die</span>
+    <h2 class="head">The fastest response wins — <span class="hl">and you're on a machine all day</span></h2>
+    <div class="sms-split">
+
+      <div class="ph">
+        <div class="ph-screen">
+          <div class="ph-head">Property Manager · Westheimer Rd</div>
+          <span class="m-sys miss">✕ Missed call · 2:47 PM — you're mid-stripe</span>
+          <div class="m-out">Hey — this is Braden with Coastal Roadworks. Sorry I missed you, I'm out on a job site. How can I help?</div>
+          <span class="m-t r">2:47 PM · sent automatically</span>
+          <div class="m-in">Need a quote on restriping a retail lot — ADA stalls and a fire lane. Can you come look this week?</div>
+          <span class="m-t">2:49 PM</span>
+          <span class="m-sys">✓ Lead saved — follow-up scheduled</span>
+        </div>
+      </div>
+
+      <div class="sms-pts">
+        <div class="bignum">78%</div>
+        <div class="bigcap">of customers hire the business that responds first</div>
+        <div class="bigsrc">— industry speed-to-lead research</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>You stripe lots overnight and run equipment all day — <b>exactly when property managers are calling around.</b> Right now those calls hit voicemail.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-12 7.6L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg><span>Missed-call text-back answers <b>in seconds, every time</b> — the lead is talking to you instead of dialing the next striper on the list.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 4v5h-5"/></svg><span>Every quote request is <b>followed up automatically until it's answered</b> — no more jobs lost to "I meant to call them back."</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 11. The Contractor Growth System -->
+  <section class="slide navy">
+    <span class="eyebrow">The Fix, As One System</span>
+    <h2 class="head">The <span class="hl">Contractor Growth System</span></h2>
+    <div class="split" style="margin-top:24px">
+      <ul class="checklist" data-render="checklist" data-key="cgs"></ul>
+      <div class="feature-box">
+        <span class="tag">Why it works</span>
+        <h3>Each piece feeds the next</h3>
+        <p>The site converts the click. The text-back saves the missed call. The follow-up closes the quote. The finished job becomes a review — and the review wins the next click. One system, compounding — <b style="color:#fff">run from one app on your phone.</b></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. What one job is worth -->
+  <section class="slide light">
+    <span class="eyebrow">The Math That Matters</span>
+    <h2 class="head">What is one commercial lot <span class="hl">worth to you?</span></h2>
+    <div class="roi-flow">
+      <div class="roi-node">
+        <div class="ic mini-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V7l8-4v18M11 21V11l8-3v13M3 21h18"/></svg></div>
+        <div class="big">$2,000+</div>
+        <div class="lbl">a typical commercial striping ticket — asphalt repair and large lots run far more</div>
+      </div>
+      <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="roi-node">
+        <div class="big">Every 18–24 mo</div>
+        <div class="lbl">striping wears out on a cycle — win a lot once and it comes back for years</div>
+      </div>
+      <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="roi-node win">
+        <div class="big">1 job / quarter</div>
+        <div class="lbl">is all this plan needs to land to pay for itself several times over</div>
+      </div>
+    </div>
+    <p class="roi-punch">You're not buying a website — <b>you're buying the machine that wins the next lot, and keeps it.</b></p>
+  </section>
+
+  <!-- 13. Investment -->
+  <section class="slide light">
+    <span class="eyebrow">The Investment</span>
+    <h2 class="head">Referral pricing — <span class="hl">locked in for you</span></h2>
+    <div class="anchors">
+      <div class="an"><div class="ak">Comparable custom builds</div><div class="av">$3,500–$5,000</div><div class="as">hand-coded, schema &amp; AI-ready, this scope</div></div>
+      <div class="an"><div class="ak">What your friend paid</div><div class="av">$3,800</div><div class="as">his invoice — you've seen it yourself</div></div>
+      <div class="an win"><div class="ak">Your referral price</div><div class="av">$2,000</div><div class="as">one-time · because you came recommended</div></div>
+    </div>
+    <div class="inv-grid" data-render="cards" data-key="tiers"></div>
+    <p class="price-note">Optional add-on: <b>monthly content publishing</b> — fresh articles on your site that feed Google &amp; AI visibility — <b>+$149/mo</b>.</p>
+  </section>
+
+  <!-- 14. Next steps -->
+  <section class="slide navy">
+    <span class="eyebrow">Next Steps</span>
+    <h2 class="head">Live in about <span class="hl">two weeks</span></h2>
+    <div class="steps row">
+      <div class="step"><div class="n">1</div><div><h4>Say go</h4><p>Referral pricing locked. We start the same day — no homework on your end beyond a few photos and preferences.</p></div></div>
+      <div class="step"><div class="n">2</div><div><h4>We build, you approve</h4><p>Your site finished with your content — you review every page before anything goes live. About 1–2 weeks.</p></div></div>
+      <div class="step"><div class="n">3</div><div><h4>Launch + system on</h4><p>Site live on coastalroadworks.com, review asks and missed-call text-back working from day one.</p></div></div>
+    </div>
+    <div class="reco-banner" style="margin-top:40px;background:linear-gradient(160deg,var(--accent),var(--accent-600));color:#fff;border-radius:16px;padding:18px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:0 20px 50px rgba(17,145,193,.3)">
+      <div><div style="font-family:var(--font-head);font-weight:800;font-size:clamp(1.1rem,1.8vw,1.5rem)">Website build $2,000 · Contractor Growth System $297/mo</div><div style="opacity:.94;font-weight:600;font-size:.98rem">One decision — the site, the reviews, the follow-up, all handled.</div></div>
+      <div class="contact-pill" style="margin:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Jeffrey · Zonkel Media</div>
+    </div>
+  </section>
+
+  <!-- 15. BACKUP — only advance here if the Growth System pitch stalls -->
+  <section class="slide light">
+    <span class="eyebrow">Prefer to Start Simple?</span>
+    <h2 class="head">Just want the website? <span class="hl">There's a plan for that</span></h2>
+    <div class="price-grid" data-render="cards" data-key="starter" style="margin-top:30px;width:min(560px,100%);margin-left:auto;margin-right:auto"></div>
+    <p class="price-note">Build fee stays $2,000 · upgrade to the full Growth System anytime — your site and Google profile carry straight over.</p>
+  </section>
+
+</div>
+
+<div class="chrome">
+  <button class="nav-btn" id="prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <div class="dots" id="dots"></div>
+  <button class="nav-btn" id="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></button>
+</div>
+<div class="hint">← → to navigate · P to print</div>
+
+<script src="deck.js"></script>
+</body>
+</html>

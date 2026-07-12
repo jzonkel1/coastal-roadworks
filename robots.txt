@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://coastalroadworks.com/sitemap-index.xml
