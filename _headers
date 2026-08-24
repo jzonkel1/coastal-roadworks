@@ -1,0 +1,28 @@
+# Netlify response headers. Ignored by GitHub Pages, which serves everything
+# with a 10-minute cache and is why the preview reports "Use efficient cache
+# lifetimes" against ~1.8 MB. That finding resolves itself on launch.
+
+# Astro fingerprints every filename in _astro/, so the content behind a given
+# URL can never change. Safe to cache forever.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Video, posters and the OG card live in public/ and are NOT fingerprinted —
+# replacing one reuses its filename. A month is long enough to help repeat
+# visitors and short enough that a swapped clip works itself out.
+/media/*
+  Cache-Control: public, max-age=2592000
+/og-coastal-roadworks.jpg
+  Cache-Control: public, max-age=2592000
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# NOT enabling HSTS yet. It is a one-way door: once a browser sees it, it
+# refuses plain HTTP for this domain for the full max-age, so any certificate
+# problem in the first weeks after launch takes the site down with no quick
+# way out. Add it once the domain has been live and stable on Netlify's cert
+# for a couple of weeks:
+#   Strict-Transport-Security: max-age=31536000
