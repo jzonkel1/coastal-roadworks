@@ -1,4 +1,4 @@
+# Preview deploy on GitHub Pages — not the production domain.
+# Kept out of the index so it never competes with coastalroadworks.com.
 User-agent: *
-Allow: /
-
-Sitemap: https://coastalroadworks.com/sitemap-index.xml
+Disallow: /
